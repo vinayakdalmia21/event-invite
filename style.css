@@ -971,6 +971,7 @@ h1, h2, h3, h4, h5 {
   padding: 1.5rem 1rem 1.2rem;
   opacity: 0;
   transform: translateY(20px);
+  text-decoration: none;
 }
 
 .collab__card--couture {
@@ -983,9 +984,9 @@ h1, h2, h3, h4, h5 {
 
 .collab__logo {
   width: 80%;
-  height: 180px;
+  height: 110px;
   object-fit: contain;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .divider-image {
