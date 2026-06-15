@@ -743,7 +743,7 @@ h1, h2, h3, h4, h5 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  justify-content: center;
+  justify-content: flex-start;
   aspect-ratio: 1.4; /* Adjusted slightly based on the new image proportions */
 }
 
@@ -797,10 +797,10 @@ h1, h2, h3, h4, h5 {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 55%;
 }
 
 .atelier-card__label {
