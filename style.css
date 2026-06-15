@@ -722,7 +722,7 @@ h1, h2, h3, h4, h5 {
   flex-direction: column;
   gap: 2rem;
   width: 100%;
-  max-width: 600px;
+  max-width: 380px;
   margin: 0 auto;
 }
 
@@ -730,7 +730,7 @@ h1, h2, h3, h4, h5 {
   position: relative;
   background: #FAF4EB; /* Soft warm ivory */
   border-radius: 4px;
-  padding: 3rem 2rem;
+  padding: 2.5rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
