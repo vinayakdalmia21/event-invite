@@ -801,17 +801,28 @@ h1, h2, h3, h4, h5 {
   opacity: 0.5;
 }
 
-/* 2×2 Grid */
+/* Swipeable Carousel */
 .story-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
   max-width: 380px;
   width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  padding-bottom: var(--space-sm);
+}
+
+.story-grid::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 /* Individual cards */
 .story-card {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
   opacity: 0;
   transform: translateY(20px);
 }
