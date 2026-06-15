@@ -1273,7 +1273,7 @@ h1, h2, h3, h4, h5 {
   gap: 1rem;
 }
 
-.rsvp-form__field label {
+.rsvp-form__field > label {
   font-family: var(--font-body);
   font-size: 0.6rem;
   letter-spacing: 0.25em;
@@ -1281,7 +1281,13 @@ h1, h2, h3, h4, h5 {
   color: var(--deep-gold);
 }
 
-.rsvp-form__field input {
+.rsvp-form__field > label .required {
+  color: var(--rust);
+}
+
+.rsvp-form__field input[type="text"],
+.rsvp-form__field input[type="tel"],
+.rsvp-form__field input[type="email"] {
   width: 100%;
   padding: 0.8rem 0;
   border: none;
@@ -1297,11 +1303,15 @@ h1, h2, h3, h4, h5 {
   -webkit-appearance: none;
 }
 
-.rsvp-form__field input:focus {
+.rsvp-form__field input[type="text"]:focus,
+.rsvp-form__field input[type="tel"]:focus,
+.rsvp-form__field input[type="email"]:focus {
   border-bottom-color: var(--gold);
 }
 
-.rsvp-form__field input::placeholder {
+.rsvp-form__field input[type="text"]::placeholder,
+.rsvp-form__field input[type="tel"]::placeholder,
+.rsvp-form__field input[type="email"]::placeholder {
   color: rgba(185, 152, 116, 0.5);
   font-family: var(--font-heading);
   font-weight: 300;
