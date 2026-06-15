@@ -754,6 +754,22 @@ h1, h2, h3, h4, h5 {
   max-width: 55%;
 }
 
+.atelier-card--perfume {
+  background-image: url('assets/perfume.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 1.4;
+}
+
+.atelier-card--jewellery {
+  background-image: url('assets/jeweller.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 1.4;
+}
+
 /* The delicate border with corner ornaments */
 .atelier-card__border {
   position: absolute;
@@ -791,6 +807,7 @@ h1, h2, h3, h4, h5 {
   justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
+  max-width: 55%;
 }
 
 .atelier-card__label {
