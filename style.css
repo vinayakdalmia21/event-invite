@@ -1087,9 +1087,8 @@ h1, h2, h3, h4, h5 {
    ============================================= */
 .section--rsvp {
   background: var(--beige);
-  padding: var(--space-md) var(--space-md) var(--space-xl);
+  padding: var(--space-xl) var(--space-md);
   min-height: auto;
-  justify-content: space-between;
 }
 
 .rsvp__content {
