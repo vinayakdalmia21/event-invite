@@ -9,6 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export function initCollaboration() {
   const header = document.querySelector('.collab__header');
   const cards = document.querySelectorAll('.collab__card');
+  const separator = document.querySelector('.collab__separator');
   const quote = document.querySelector('.collab__quote');
 
   // Animate section header
@@ -40,7 +41,7 @@ export function initCollaboration() {
         opacity: 1,
         y: 0,
         duration: 1,
-        delay: index * 0.15,
+        delay: index * 0.3,
         ease: 'power2.out',
         scrollTrigger: {
           trigger: card,
@@ -50,6 +51,24 @@ export function initCollaboration() {
       }
     );
   });
+
+  if (separator) {
+    gsap.fromTo(separator,
+      { opacity: 0, scale: 0.5 },
+      {
+        opacity: 0.8,
+        scale: 1,
+        duration: 1,
+        delay: 0.15,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: separator,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        }
+      }
+    );
+  }
 
   // Animate bottom quote
   if (quote) {

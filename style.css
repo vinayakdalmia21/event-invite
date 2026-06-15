@@ -987,14 +987,16 @@ h1, h2, h3, h4, h5 {
 
 /* Two cards side by side */
 .collab__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 0.8rem;
   max-width: 380px;
   width: 100%;
 }
 
 .collab__card {
+  flex: 1;
   border-radius: 6px;
   overflow: hidden;
   display: flex;
@@ -1004,6 +1006,27 @@ h1, h2, h3, h4, h5 {
   opacity: 0;
   transform: translateY(20px);
   text-decoration: none;
+}
+
+.collab__separator {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--deep-gold);
+  opacity: 0;
+  user-select: none;
+  margin: 0 0.1rem;
+  line-height: 1;
+}
+
+.collab__divider-text {
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--deep-gold);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
 }
 
 .collab__card--couture {
