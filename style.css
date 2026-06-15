@@ -736,6 +736,7 @@ h1, h2, h3, h4, h5 {
   justify-content: flex-start;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(72, 45, 34, 0.04);
+  aspect-ratio: 1.4;
 }
 
 .atelier-card--theatrical {
@@ -744,7 +745,6 @@ h1, h2, h3, h4, h5 {
   background-position: center;
   background-repeat: no-repeat;
   justify-content: flex-start;
-  aspect-ratio: 1.4; /* Adjusted slightly based on the new image proportions */
 }
 
 .atelier-card--perfume {
@@ -752,7 +752,6 @@ h1, h2, h3, h4, h5 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  aspect-ratio: 1.4;
 }
 
 .atelier-card--jewellery {
@@ -760,7 +759,6 @@ h1, h2, h3, h4, h5 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  aspect-ratio: 1.4;
 }
 
 /* The delicate border with corner ornaments */
@@ -821,7 +819,7 @@ h1, h2, h3, h4, h5 {
 .atelier-card__label-line {
   color: var(--rust);
   margin-top: 0.4rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   opacity: 0.5;
 }
 
@@ -847,7 +845,7 @@ h1, h2, h3, h4, h5 {
   width: 40px;
   height: 1.5px;
   background-color: var(--rust);
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   opacity: 0.6;
 }
 
@@ -914,37 +912,21 @@ h1, h2, h3, h4, h5 {
   text-transform: uppercase;
 }
 
-/* Adjust layout for smaller screens */
 @media (max-width: 768px) {
   .atelier-card {
-    flex-direction: column;
-    padding: 2.5rem 1.5rem;
-    gap: 2.5rem;
-    aspect-ratio: auto;
-    min-height: 280px;
-  }
-  .atelier-card--theatrical {
-    background-size: 50% auto;
-    background-position: right center;
-    aspect-ratio: auto;
-    min-height: 280px;
-  }
-  .atelier-card--perfume {
-    background-size: 50% auto;
-    background-position: right bottom;
-    aspect-ratio: auto;
-    min-height: 280px;
-  }
-  .atelier-card--jewellery {
-    background-size: 50% auto;
-    background-position: right bottom;
-    aspect-ratio: auto;
-    min-height: 280px;
+    padding: 1.5rem 1rem;
   }
   .atelier-card__content {
     align-items: flex-start;
     text-align: left;
-    max-width: 58%;
+    max-width: 80%;
+  }
+  .atelier-card__title {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+  }
+  .atelier-card__desc {
+    font-size: 0.8rem;
   }
   .atelier-card__notes-column {
     padding-right: 0;
