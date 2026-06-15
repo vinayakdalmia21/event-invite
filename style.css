@@ -738,6 +738,14 @@ h1, h2, h3, h4, h5 {
   box-shadow: 0 4px 20px rgba(72, 45, 34, 0.04);
 }
 
+.atelier-card--theatrical {
+  background-image: url('assets/images/theatrical.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 1.5; /* Keeps it wide like the design */
+}
+
 /* The delicate border with corner ornaments */
 .atelier-card__border {
   position: absolute;
