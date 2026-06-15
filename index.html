@@ -334,80 +334,111 @@
   <!-- SECTION 7: RSVP                              -->
   <!-- ============================================ -->
   <section id="rsvp" class="section section--rsvp">
-    <div class="rsvp__content">
-      <p class="rsvp__label">WITH GRACE</p>
-      <h2 class="rsvp__title">Will you join us?</h2>
-      <p class="rsvp__subtitle">Seats are few. Each guest is welcomed by name.</p>
-
-      <button class="rsvp__button" id="rsvp-open">
-        <span>RESERVE YOUR PLACE</span>
-      </button>
-
-      <p class="rsvp__deadline">RSVP by 20 June 2026</p>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      <svg class="footer__diamond" viewBox="0 0 12 12" width="10" height="10">
-        <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#B99874"/>
-      </svg>
-      <p class="footer__brand">VEDA × DIVYA SAMAL</p>
-      <p class="footer__location">Bangalore · MMXXVI</p>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- RSVP FORM (inline, hidden until triggered)   -->
-  <!-- ============================================ -->
-  <div class="rsvp-modal" id="rsvp-modal" style="display:none">
-    <div class="rsvp-modal__overlay"></div>
-    <div class="rsvp-modal__content">
-      <button class="rsvp-modal__close" id="rsvp-close" aria-label="Close">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <line x1="18" y1="6" x2="6" y2="18"/>
-          <line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-      </button>
-
-      <!-- Header with line accents -->
-      <div class="rsvp-modal__header">
-        <div class="rsvp-modal__header-line"></div>
-        <span class="rsvp-modal__brand">VEDA</span>
-        <div class="rsvp-modal__header-line"></div>
+    <div class="rsvp__content" id="rsvp-container">
+      <div class="rsvp__header-area">
+        <p class="rsvp__label">WITH GRACE</p>
+        <h2 class="rsvp__title">Reserve Your Place</h2>
+        <p class="rsvp__subtitle">Seats are few. Each guest is welcomed by name.</p>
+        <div class="rsvp__divider">
+          <img src="assets/divider.png" class="divider-image" alt="Decorative Divider" loading="lazy" />
+        </div>
       </div>
-
-      <h3 class="rsvp-modal__title">Reserve Your Place</h3>
-      <p class="rsvp-modal__desc">A note from you to us — handwritten in spirit.</p>
 
       <form class="rsvp-form" id="rsvp-form">
         <div class="rsvp-form__field">
-          <label for="rsvp-name">YOUR NAME</label>
-          <input type="text" id="rsvp-name" name="name" placeholder="Aishwarya" required autocomplete="name" />
+          <label for="rsvp-name">Full Name <span class="required">*</span></label>
+          <input type="text" id="rsvp-name" name="name" placeholder="Your answer" required />
         </div>
+
         <div class="rsvp-form__field">
-          <label for="rsvp-phone">PHONE</label>
-          <input type="tel" id="rsvp-phone" name="phone" placeholder="+91" required autocomplete="tel" />
+          <label for="rsvp-phone">Mobile Number <span class="required">*</span></label>
+          <input type="tel" id="rsvp-phone" name="phone" placeholder="Your answer" required />
         </div>
+
         <div class="rsvp-form__field">
-          <label for="rsvp-email">EMAIL</label>
-          <input type="email" id="rsvp-email" name="email" placeholder="you@email.com" required autocomplete="email" />
-        </div>
-        <div class="rsvp-form__row">
-          <div class="rsvp-form__field rsvp-form__field--half">
-            <label for="rsvp-guests">GUESTS</label>
-            <input type="number" id="rsvp-guests" name="guests" value="1" min="1" max="5" />
+          <label>Are you attending as? <span class="required">*</span></label>
+          <div class="radio-group">
+            <label class="radio-label"><input type="radio" name="attending_as" value="Customer" required> <span class="radio-custom"></span> Customer</label>
+            <label class="radio-label"><input type="radio" name="attending_as" value="Media"> <span class="radio-custom"></span> Media</label>
+            <label class="radio-label"><input type="radio" name="attending_as" value="Influencer / Creator"> <span class="radio-custom"></span> Influencer / Creator</label>
+            <label class="radio-label"><input type="radio" name="attending_as" value="Investor"> <span class="radio-custom"></span> Investor</label>
+            <label class="radio-label"><input type="radio" name="attending_as" value="Community Member"> <span class="radio-custom"></span> Community Member</label>
+            <label class="radio-label"><input type="radio" name="attending_as" value="Industry Professional"> <span class="radio-custom"></span> Industry Professional</label>
+            <label class="radio-label"><input type="radio" name="attending_as" value="Brand Representative"> <span class="radio-custom"></span> Brand Representative</label>
+            <label class="radio-label"><input type="radio" name="attending_as" value="Other"> <span class="radio-custom"></span> Other</label>
           </div>
-          <div class="rsvp-form__field rsvp-form__field--half">
-            <label>ATTENDING</label>
-            <input type="text" value="With grace" readonly class="rsvp-form__attending" />
+        </div>
+
+        <div class="rsvp-form__field">
+          <label>Would you like to attend the Theatrical Fashion Presentation at 5:00 PM? <span class="required">*</span></label>
+          <div class="radio-group">
+            <label class="radio-label"><input type="radio" name="theatrical" value="Yes" required> <span class="radio-custom"></span> Yes</label>
+            <label class="radio-label"><input type="radio" name="theatrical" value="No"> <span class="radio-custom"></span> No</label>
+            <label class="radio-label"><input type="radio" name="theatrical" value="Maybe"> <span class="radio-custom"></span> Maybe</label>
           </div>
         </div>
+
+        <div class="rsvp-form__field">
+          <label>Which time slot will you be visiting? <span class="required">*</span></label>
+          <div class="radio-group">
+            <label class="radio-label"><input type="radio" name="time_slot" value="11:00 AM - 1:00 PM" required> <span class="radio-custom"></span> 11:00 AM – 1:00 PM</label>
+            <label class="radio-label"><input type="radio" name="time_slot" value="1:00 PM - 3:00 PM"> <span class="radio-custom"></span> 1:00 PM – 3:00 PM</label>
+            <label class="radio-label"><input type="radio" name="time_slot" value="3:00 PM - 5:00 PM"> <span class="radio-custom"></span> 3:00 PM – 5:00 PM</label>
+            <label class="radio-label"><input type="radio" name="time_slot" value="Full Day Experience"> <span class="radio-custom"></span> Full Day Experience</label>
+          </div>
+        </div>
+
+        <div class="rsvp-form__field">
+          <label>How did you hear about this event? <span class="required">*</span></label>
+          <div class="radio-group">
+            <label class="radio-label"><input type="radio" name="source" value="Personal Invitation" required> <span class="radio-custom"></span> Personal Invitation</label>
+            <label class="radio-label"><input type="radio" name="source" value="VEDA Jewellery"> <span class="radio-custom"></span> VEDA Jewellery</label>
+            <label class="radio-label"><input type="radio" name="source" value="Label Divya Samal"> <span class="radio-custom"></span> Label Divya Samal</label>
+            <label class="radio-label"><input type="radio" name="source" value="Instagram"> <span class="radio-custom"></span> Instagram</label>
+            <label class="radio-label"><input type="radio" name="source" value="Influencer"> <span class="radio-custom"></span> Influencer</label>
+            <label class="radio-label"><input type="radio" name="source" value="Friend / Family"> <span class="radio-custom"></span> Friend / Family</label>
+            <label class="radio-label"><input type="radio" name="source" value="Media Feature"> <span class="radio-custom"></span> Media Feature</label>
+            <label class="radio-label"><input type="radio" name="source" value="Other"> <span class="radio-custom"></span> Other</label>
+          </div>
+        </div>
+
+        <div class="rsvp-form__field">
+          <label for="rsvp-notes">Is there anything you'd like us to know before your visit?</label>
+          <input type="text" id="rsvp-notes" name="notes" placeholder="Your answer" />
+        </div>
+
+        <div class="rsvp-form__field">
+          <label>How excited are you for the event? <span class="required">*</span></label>
+          <div class="scale-group">
+            <div class="scale-item">
+              <span>1</span>
+              <label class="radio-label"><input type="radio" name="excitement" value="1" required><span class="radio-custom"></span></label>
+            </div>
+            <div class="scale-item">
+              <span>2</span>
+              <label class="radio-label"><input type="radio" name="excitement" value="2"><span class="radio-custom"></span></label>
+            </div>
+            <div class="scale-item">
+              <span>3</span>
+              <label class="radio-label"><input type="radio" name="excitement" value="3"><span class="radio-custom"></span></label>
+            </div>
+            <div class="scale-item">
+              <span>4</span>
+              <label class="radio-label"><input type="radio" name="excitement" value="4"><span class="radio-custom"></span></label>
+            </div>
+            <div class="scale-item">
+              <span>5</span>
+              <label class="radio-label"><input type="radio" name="excitement" value="5"><span class="radio-custom"></span></label>
+            </div>
+          </div>
+        </div>
+
         <button type="submit" class="rsvp-form__submit" id="rsvp-submit">
           <span>CONFIRM ATTENDANCE</span>
         </button>
       </form>
 
-      <!-- Confirmation (hidden) -->
+      <!-- Confirmation (hidden initially) -->
       <div class="rsvp-confirmation" id="rsvp-confirmation" style="display:none">
         <svg class="rsvp-confirmation__lotus" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <g class="confirmation-lotus-layer">
@@ -421,7 +452,15 @@
         <p class="rsvp-confirmation__text">We look forward to welcoming you.</p>
       </div>
     </div>
-  </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <svg class="footer__diamond" viewBox="0 0 12 12" width="10" height="10">
+        <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#B99874"/>
+      </svg>
+      <p class="footer__brand">VEDA × DIVYA SAMAL</p>
+      <p class="footer__location">Bangalore · MMXXVI</p>
+    </div>
 
   <script type="module" src="./js/main.js"></script>
 </body>
