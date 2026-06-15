@@ -922,8 +922,9 @@ h1, h2, h3, h4, h5 {
     gap: 2.5rem;
   }
   .atelier-card__content {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 100%;
   }
   .atelier-card__notes-column {
     padding-right: 0;
