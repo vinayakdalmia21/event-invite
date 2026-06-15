@@ -19,7 +19,7 @@ export function initArrival({ onEnvelopeOpened }) {
   // IMPORTANT: Set this to the exact second where the door is fully closed.
   const DOOR_PAUSE_TIME = 1.5;
 
-  const VIDEO_BLEND_TIME = 10.0;
+  const VIDEO_BLEND_TIME = 10.5;
 
   let hasEnded = false;
 

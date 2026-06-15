@@ -714,225 +714,155 @@ h1, h2, h3, h4, h5 {
   opacity: 0.5;
 }
 
-/* Experience cards */
-.exp-card {
-  max-width: 360px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(
-    145deg,
-    #F5EDDA 0%,
-    #FAF2E2 30%,
-    #FFF8E6 70%,
-    #F8F0DC 100%
-  );
-  border: 0.5px solid rgba(185, 152, 116, 0.25);
-  border-radius: 4px;
-  padding: 2rem 1.8rem 2.2rem;
-  box-shadow:
-    0 2px 20px rgba(72, 45, 34, 0.04),
-    0 1px 4px rgba(72, 45, 34, 0.03);
-  opacity: 0;
-  transform: translateY(25px);
-}
-
-.exp-card__number-label {
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--rust);
-  margin-bottom: 1rem;
-  font-weight: 400;
-}
-
-.exp-card__title {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 300;
-  color: var(--deep-brown);
-  letter-spacing: 0.02em;
-  line-height: 1.15;
-  margin-bottom: 1rem;
-}
-
-.exp-card__desc {
-  font-family: var(--font-secondary);
-  font-size: 0.9rem;
-  font-style: italic;
-  line-height: 1.7;
-  color: var(--deep-gold);
-  letter-spacing: 0.02em;
-  max-width: 280px;
-}
-
-.exp-card__accent {
-  width: 32px;
-  height: 2px;
-  background: var(--rust);
-  opacity: 0.5;
-  margin-top: 1.2rem;
-}
-
-
-
 /* =============================================
-   SECTION 5: SACRED NARRATIVE (2×2 Grid)
+   ATELIER CARDS (Replacing Highlights & Story)
    ============================================= */
-.section--shakti-story {
-  background: var(--beige);
-  padding: var(--space-xl) var(--space-md);
-  min-height: auto;
-  gap: var(--space-lg);
+.atelier-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Section header */
-.story__header {
-  text-align: center;
-  margin-bottom: var(--space-md);
-  opacity: 0;
+.atelier-card {
+  position: relative;
+  background: #FAF4EB; /* Soft warm ivory */
+  border-radius: 4px;
+  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(72, 45, 34, 0.04);
 }
 
-.story__label {
+/* The delicate border with corner ornaments */
+.atelier-card__border {
+  position: absolute;
+  inset: 12px;
+  border: 0.5px solid rgba(185, 152, 116, 0.5);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Corner dots */
+.atelier-card__border::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: 
+    radial-gradient(circle at 0 0, var(--rust) 2px, transparent 2.5px),
+    radial-gradient(circle at 100% 0, var(--rust) 2px, transparent 2.5px),
+    radial-gradient(circle at 0 100%, var(--rust) 2px, transparent 2.5px),
+    radial-gradient(circle at 100% 100%, var(--rust) 2px, transparent 2.5px);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  /* Push slightly outside so center of dot is on the corner */
+  transform: scale(1.01) scaleY(1.02);
+}
+
+.atelier-card__content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 55%;
+}
+
+.atelier-card__label {
   font-family: var(--font-body);
   font-size: 0.65rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.25em;
+  color: var(--rust);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.story__title {
+.atelier-card__dot {
+  font-weight: bold;
+}
+
+.atelier-card__label-line {
+  color: var(--rust);
+  margin-top: 0.4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+}
+
+.atelier-card__title {
   font-family: var(--font-heading);
   font-size: 2.2rem;
   font-weight: 300;
-  font-style: italic;
-  color: var(--deep-brown);
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-}
-
-.story__divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-  margin-top: 1rem;
-}
-
-.story__divider-line {
-  width: 40px;
-  height: 0.5px;
-  background: var(--gold);
-  opacity: 0.5;
-}
-
-/* Swipeable Carousel */
-.story-grid {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  max-width: 380px;
-  width: 100%;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-  padding-bottom: var(--space-sm);
-}
-
-.story-grid::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
-}
-
-/* Individual cards */
-.story-card {
-  flex: 0 0 100%;
-  scroll-snap-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.story-card__frame {
-  position: relative;
-  overflow: hidden;
-  border-radius: 6px;
-  border: 0.5px solid rgba(185, 152, 116, 0.15);
-  aspect-ratio: 3 / 4.5;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Card Image Background */
-.story-card__bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-/* Dark gradient overlay so text remains readable over any image */
-.story-card__frame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Card content */
-.story-card__content {
-  position: relative;
-  z-index: 1;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: flex-end; /* Push text to the bottom where the gradient is darker */
-  height: 100%;
-}
-
-.story-card__chapter {
-  font-family: var(--font-body);
-  font-size: 0.5rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.story-card__theme {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  font-weight: 300;
-  font-style: italic;
-  letter-spacing: 0.02em;
+  color: var(--rust);
   line-height: 1.15;
-  margin-bottom: 0.6rem;
-  color: #FFFFFF;
+  margin-bottom: 1rem;
 }
 
-.story-card__accent {
-  width: 24px;
-  height: 1px;
-  margin-bottom: 0.8rem;
-  background: rgba(255, 255, 255, 0.4);
-}
-
-.story-card__quote {
+.atelier-card__desc {
   font-family: var(--font-secondary);
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-style: italic;
   line-height: 1.6;
-  letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--rust);
+  opacity: 0.85;
+}
+
+.atelier-card__bottom-line {
+  width: 40px;
+  height: 1.5px;
+  background-color: var(--rust);
+  margin-top: 1.5rem;
+  opacity: 0.6;
+}
+
+.atelier-card__image-container {
+  position: relative;
+  z-index: 1;
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.atelier-card__image {
+  max-width: 160%;
+  height: auto;
+  object-fit: contain;
+  /* Push image slightly to the right so it bleeds beautifully */
+  transform: translateX(10%);
+}
+
+/* Adjust layout for smaller screens */
+@media (max-width: 768px) {
+  .atelier-card {
+    flex-direction: column;
+    padding: 2.5rem 1.5rem;
+  }
+  .atelier-card__content {
+    max-width: 100%;
+    margin-bottom: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+  .atelier-card__image-container {
+    width: 100%;
+    justify-content: center;
+  }
+  .atelier-card__image {
+    max-width: 100%;
+    transform: none;
+  }
 }
 /* =============================================
    SECTION 6: THE COLLABORATION
