@@ -374,10 +374,10 @@ h1, h2, h3, h4, h5 {
 
 /* Main Lotus Logo */
 .invitation__lotus-logo {
-  width: 90%;
-  max-width: 280px;
+  width: 85%;
+  max-width: 250px;
   height: auto;
-  margin-top: -3rem;
+  margin-top: -1rem;
   margin-bottom: 1.5rem;
   mix-blend-mode: multiply; /* Removes the white background from the JPG */
 }
