@@ -1086,20 +1086,13 @@ h1, h2, h3, h4, h5 {
 }
 
 .collab__gifting {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
+  text-align: center;
   margin-top: 0.5rem;
   opacity: 0;
 }
 
-.collab__gifting .collab__divider-text {
-  margin: 0;
-}
-
 .collab__logo--gifting {
-  margin: 0;
+  margin-top: 0.2rem;
   max-width: 90px;
 }
 
