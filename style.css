@@ -1591,23 +1591,29 @@ h1, h2, h3, h4, h5 {
     padding-right: var(--space-xxl);
   }
 
+  /* Force arrival section to always be full viewport to hide everything else */
+  .section--arrival {
+    max-width: none !important;
+    width: 100vw !important;
+    background: transparent; /* Let body pattern show through */
+  }
+
   .grain-overlay,
   #particles-canvas {
     max-width: 100%;
   }
 
-  /* Intro Video Constraints (Center it like a card) */
+  /* Intro Video Constraints (Center it like a vertical strip) */
   .arrival-video-wrapper {
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     width: 100%;
     max-width: 500px; /* Constrain vertical video so it doesn't over-zoom */
-    height: 100%;
-    max-height: 85vh;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    height: 100vh;
+    height: 100dvh;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
     overflow: hidden;
   }
 
