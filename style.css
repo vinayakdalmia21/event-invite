@@ -1584,13 +1584,51 @@ h1, h2, h3, h4, h5 {
     align-items: center;
   }
 
+  /* Allow sections to breathe on desktop */
   .section {
-    max-width: 600px;
+    max-width: 1200px;
+    padding-left: var(--space-xxl);
+    padding-right: var(--space-xxl);
   }
 
   .grain-overlay,
   #particles-canvas {
     max-width: 100%;
+  }
+
+  /* Intro Video Constraints (Center it like a card) */
+  .arrival-video-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 500px; /* Constrain vertical video so it doesn't over-zoom */
+    height: 100%;
+    max-height: 85vh;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    overflow: hidden;
+  }
+
+  /* Widen the Invitation Envelope Card slightly */
+  .invitation {
+    max-width: 500px;
+    padding: var(--space-xxl);
+  }
+
+  /* Atelier Cards: 3-column Grid Layout */
+  .atelier-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .atelier-card {
+    height: 450px; /* Taller on desktop to accommodate width */
+    margin-bottom: 0;
   }
 }
 
