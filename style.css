@@ -1655,12 +1655,12 @@ h1, h2, h3, h4, h5 {
 
   .lotus-graphic--left {
     left: 0;
-    transform: translateX(-30%);
+    transform: translateX(-40%);
   }
 
   .lotus-graphic--right {
     right: 0;
-    transform: translateX(30%) scaleX(-1);
+    transform: translateX(40%) scaleX(-1);
   }
 
   .invitation {
