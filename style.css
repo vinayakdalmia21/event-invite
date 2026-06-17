@@ -1801,4 +1801,40 @@ h1, h2, h3, h4, h5 {
     max-width: 140px;
     max-height: 140px;
   }
+
+  /* ==========================
+     RSVP REDESIGN (DESKTOP)
+     ========================== */
+  .section--rsvp {
+    max-width: none;
+    width: 100vw;
+    background: var(--cream);
+    padding-top: 0;
+    padding-bottom: 5rem;
+  }
+
+  .section--rsvp .rsvp__label {
+    color: var(--gold);
+    font-weight: bold;
+  }
+
+  .section--rsvp .rsvp__title {
+    color: var(--rust);
+  }
+
+  .section--rsvp .rsvp__subtitle {
+    color: var(--deep-brown);
+  }
+
+  .section--rsvp .rsvp__button {
+    background: none;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-weight: bold;
+  }
+
+  .section--rsvp .rsvp__button:active {
+    background: transparent;
+    transform: scale(0.98);
+  }
 }
