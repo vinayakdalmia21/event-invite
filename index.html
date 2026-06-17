@@ -52,6 +52,10 @@
   <!-- SECTION 2: INVITATION CARD REVEAL            -->
   <!-- ============================================ -->
   <section id="invitation-card" class="section section--invitation-card" style="display:none">
+    <!-- Decorative Lotuses for Desktop -->
+    <img src="assets/lotus-left.png" class="lotus-graphic lotus-graphic--left" alt="" />
+    <img src="assets/lotus-right.png" class="lotus-graphic lotus-graphic--right" alt="" />
+
     <div class="invitation" id="invitation">
       <!-- Corner ornaments -->
       <div class="invitation__corner invitation__corner--tl"></div>
@@ -69,18 +73,23 @@
 
         <p class="invitation__label" style="font-size:0.8rem; letter-spacing:0.4em; margin-bottom: 0.8rem; color:var(--rust);">YOU ARE INVITED</p>
 
-        <p class="invitation__label">ON THE</p>
+        <div class="invitation__details-grid">
+          <div class="invitation__details-col">
+            <p class="invitation__label">ON THE</p>
+            <p class="invitation__date">28th June,<br>2026</p>
+          </div>
 
-        <p class="invitation__date">28th June, 2026</p>
+          <div class="invitation__details-col invitation__details-col--middle">
+            <p class="invitation__label">FROM</p>
+            <p class="invitation__time">10 AM to 7 PM</p>
+          </div>
 
-        <p class="invitation__label invitation__label--spaced">FROM</p>
-
-        <p class="invitation__time">10 AM to 7 PM</p>
-
-        <p class="invitation__label invitation__label--spaced">AT</p>
-
-        <p class="invitation__venue">Sabha BLR</p>
-        <p class="invitation__venue-sub">Shivajinagar, Bangalore</p>
+          <div class="invitation__details-col">
+            <p class="invitation__label">AT</p>
+            <p class="invitation__venue">Sabha BLR</p>
+            <p class="invitation__venue-sub">Shivajinagar, Bangalore</p>
+          </div>
+        </div>
 
         <!-- Bottom divider -->
         <div class="invitation__divider invitation__divider--bottom">

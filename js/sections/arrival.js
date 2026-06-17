@@ -13,6 +13,12 @@ export function initArrival({ onEnvelopeOpened }) {
 
   if (!videoWrapper || !video || !popup) return;
 
+  // Swap to desktop video if screen is wide enough
+  if (window.innerWidth >= 1200) {
+    video.src = 'assets/intro-video-desktop.mp4#t=0.001';
+    video.load();
+  }
+
   let hasPausedForDoor = false;
   let isVideoPlaying = false;
 

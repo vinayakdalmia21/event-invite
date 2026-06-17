@@ -459,31 +459,40 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 0;
 }
 
-.invitation__time-sub {
-  font-family: var(--font-secondary);
-  font-size: 0.85rem;
-  font-style: italic;
-  color: var(--gold);
-  letter-spacing: 0.06em;
-}
-
-/* Venue */
+.invitation__date,
+.invitation__time,
 .invitation__venue {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  font-weight: 500;
   color: var(--deep-brown);
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  margin-bottom: 0;
+  line-height: 1.3;
 }
 
 .invitation__venue-sub {
-  font-family: var(--font-secondary);
-  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
   font-style: italic;
-  color: var(--gold);
-  letter-spacing: 0.06em;
+  color: var(--deep-brown-light);
+  margin-top: 0.2rem;
+}
+
+/* Base grid layout for details */
+.invitation__details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.invitation__details-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Lotus graphics hidden on mobile by default */
+.lotus-graphic {
+  display: none;
 }
 
 /* Description */
@@ -1617,11 +1626,81 @@ h1, h2, h3, h4, h5 {
     overflow: hidden;
   }
 
-  /* Widen the Invitation Envelope Card to fit desktop space */
+  /* ==========================
+     INVITATION REDESIGN
+     ========================== */
+  .section--invitation-card {
+    max-width: none;
+    width: 100vw;
+    padding: 0;
+    background: var(--cream);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lotus-graphic {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 90%;
+    object-fit: contain;
+    opacity: 0.8;
+  }
+
+  .lotus-graphic--left {
+    left: 0;
+    transform: translateX(-20%);
+  }
+
+  .lotus-graphic--right {
+    right: 0;
+    transform: translateX(20%);
+  }
+
   .invitation {
-    max-width: 100%;
+    max-width: 1000px;
     width: 100%;
-    padding: var(--space-2xl);
+    padding: var(--space-xl) 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    z-index: 2; /* keep above lotuses */
+  }
+
+  .invitation__corner {
+    display: none; /* Hide corners for the full-width look */
+  }
+
+  .invitation__details-grid {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 3rem;
+    margin: 2rem 0;
+  }
+
+  .invitation__details-col {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .invitation__details-col--middle {
+    border-left: 1px solid var(--deep-brown);
+    border-right: 1px solid var(--deep-brown);
+    padding: 0 3rem;
+  }
+
+  .invitation__date,
+  .invitation__time,
+  .invitation__venue {
+    margin-bottom: 0;
+  }
+  
+  .invitation__venue-sub {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
   }
 
   /* Atelier Cards: 3-column Grid Layout */
