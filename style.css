@@ -1732,4 +1732,63 @@ h1, h2, h3, h4, h5 {
     height: 450px; /* Taller on desktop to accommodate width */
     margin-bottom: 0;
   }
+
+  /* ==========================
+     COLLABORATION REDESIGN (DESKTOP)
+     ========================== */
+  .collab-card {
+    max-width: 800px;
+    background: transparent;
+    box-shadow: none;
+    padding: 5rem 0;
+  }
+  
+  .collab-card .invitation__corner {
+    display: none;
+  }
+  
+  .collab__label-top {
+    font-size: 1.2rem;
+    letter-spacing: 0.6em;
+    margin-bottom: 1rem;
+  }
+
+  .collab__title {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .collab__divider-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .collab__grid {
+    max-width: 600px;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .collab__logo {
+    max-width: 200px;
+    max-height: 100px;
+  }
+
+  .collab__separator {
+    font-size: 2rem;
+    margin: 0 1.5rem;
+  }
+
+  .collab__gifting {
+    margin-top: 2rem;
+  }
+  
+  .collab__gifting .collab__divider-text {
+    margin-bottom: 1.5rem;
+  }
+
+  .collab__logo--gifting {
+    max-width: 140px;
+    max-height: 140px;
+  }
 }
