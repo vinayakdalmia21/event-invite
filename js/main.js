@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Also attach to document just in case they click elsewhere first
   document.addEventListener('click', window.playBackgroundAudio, { once: true });
-  document.addEventListener('touchstart', window.playBackgroundAudio, { once: true });
+  document.addEventListener('touchstart', window.playBackgroundAudio, { once: true, passive: true });
 
   // Initialize arrival (envelope + seal)
   initArrival({
