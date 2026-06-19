@@ -12,6 +12,9 @@ export function initArrival({ onEnvelopeOpened }) {
 
   if (!videoWrapper || !video) return;
 
+  // Set playback speed to 1.25x
+  video.playbackRate = 1.25;
+
   let hasPausedForDoor = false;
   let isVideoPlaying = false;
 
