@@ -67,9 +67,8 @@ export function initArrival({ onEnvelopeOpened }) {
   videoWrapper.addEventListener('click', () => {
     if (window.playBackgroundAudio) window.playBackgroundAudio();
     
-    // If paused at door, or if it hasn't started yet, tapping the screen acts as a play button
-    if ((hasPausedForDoor && !hasEnded) || video.currentTime === 0) {
-      
+    // If paused, tapping the screen acts as a play button
+    if (video.paused && !hasEnded) {
       if (!hasPausedForDoor) {
         hasPausedForDoor = true; // Bypass door pause if they tapped early
       }
@@ -83,8 +82,8 @@ export function initArrival({ onEnvelopeOpened }) {
     }
   });
 
-  // Ensure video resets to the start (handles iOS back-forward cache)
-  video.currentTime = 0;
+  // Ensure video starts at the right timestamp (handles iOS back-forward cache)
+  video.currentTime = isDesktop ? 3 : 2;
   
   // Force a play attempt to catch autoplay blocks
   const playPromise = video.play();
