@@ -15,18 +15,14 @@ export function initArrival({ onEnvelopeOpened }) {
   // Set playback speed to 1.25x
   video.playbackRate = 1.25;
 
-  let hasPausedForDoor = false;
   let isVideoPlaying = false;
 
-  // IMPORTANT: Set this to the exact second where the door is fully closed.
   const isDesktop = window.innerWidth >= 1200;
-  const DOOR_PAUSE_TIME = isDesktop ? 5.0 : 1.2;
-
   const VIDEO_BLEND_TIME = isDesktop ? 12.5 : 10.5;
 
   let hasEnded = false;
 
-  // 1. Play the video initially and wait for the door frame or blend time
+  // 1. Play the video initially and wait for the blend time
   video.addEventListener('timeupdate', () => {
     // Force skip to 2s/3s on the first frame to ensure it works on all browsers natively without breaking autoplay
     if (!video.dataset.seeked) {
@@ -35,14 +31,6 @@ export function initArrival({ onEnvelopeOpened }) {
         video.currentTime = targetTime;
       }
       video.dataset.seeked = 'true';
-    }
-    // Check for pause time
-    if (!hasPausedForDoor && video.currentTime >= DOOR_PAUSE_TIME) {
-      video.pause();
-      hasPausedForDoor = true;
-      isVideoPlaying = false;
-
-      // Wait for user tap
     }
 
     // Check for blend time
@@ -71,25 +59,6 @@ export function initArrival({ onEnvelopeOpened }) {
         duration: 2.0,
         ease: 'power2.inOut',
       });
-    }
-  });
-
-  // If user taps anywhere else on the wrapper
-  videoWrapper.addEventListener('click', () => {
-    if (window.playBackgroundAudio) window.playBackgroundAudio();
-    
-    // If paused, tapping the screen acts as a play button
-    if (video.paused && !hasEnded) {
-      if (!hasPausedForDoor) {
-        hasPausedForDoor = true; // Bypass door pause if they tapped early
-      }
-
-      video.play().catch(() => {});
-      isVideoPlaying = true;
-
-      if (navigator.vibrate) {
-        navigator.vibrate([15, 50, 10]);
-      }
     }
   });
 

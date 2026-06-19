@@ -24,21 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize background effects
   initParticles();
 
-  // Play background audio function (called on first interaction)
+  // Audio logic
   let audioPlayed = false;
+  const audioToggleBtn = document.getElementById('audio-toggle');
+  const audioToggleText = audioToggleBtn ? audioToggleBtn.querySelector('.audio-toggle__text') : null;
+
   window.playBackgroundAudio = () => {
     if (audioPlayed) return;
     const bgAudio = document.getElementById('background-audio');
     if (bgAudio) {
-      // Force audio to start from 0:00 as requested
       bgAudio.currentTime = 0;
       bgAudio.volume = 1;
       const playPromise = bgAudio.play();
       if (playPromise !== undefined) {
         playPromise.then(() => {
           audioPlayed = true;
+          if (audioToggleText) audioToggleText.textContent = 'AUDIO ON';
           
-          // Only play for 35 seconds total (fade out starting at 33s)
+          // Only play for 35 seconds total
           const timeCheck = () => {
             if (bgAudio.currentTime >= 33) {
               bgAudio.removeEventListener('timeupdate', timeCheck);
@@ -46,23 +49,48 @@ document.addEventListener('DOMContentLoaded', () => {
                 volume: 0,
                 duration: 2.0,
                 ease: 'power2.out',
-                onComplete: () => bgAudio.pause()
+                onComplete: () => {
+                  bgAudio.pause();
+                  if (audioToggleText) audioToggleText.textContent = 'AUDIO OFF';
+                }
               });
             }
           };
           bgAudio.addEventListener('timeupdate', timeCheck);
-          
         }).catch(e => {
           console.log('Audio autoplay prevented:', e);
-          audioPlayed = false; // Allow retry on the next event (e.g. click after touchstart)
+          audioPlayed = false;
         });
       }
     }
   };
-  
-  // Also attach to document just in case they click elsewhere first
+
+  // Attach to document just in case they click elsewhere first
   document.addEventListener('click', window.playBackgroundAudio, { once: true });
   document.addEventListener('touchstart', window.playBackgroundAudio, { once: true, passive: true });
+
+  // Audio Toggle Button Logic
+  if (audioToggleBtn) {
+    audioToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const bgAudio = document.getElementById('background-audio');
+      if (!bgAudio) return;
+
+      if (bgAudio.paused || bgAudio.volume === 0) {
+        // Turn ON
+        if (bgAudio.currentTime >= 33) bgAudio.currentTime = 0; // reset if it finished
+        bgAudio.volume = 1;
+        bgAudio.play().then(() => {
+          if (audioToggleText) audioToggleText.textContent = 'AUDIO ON';
+          audioPlayed = true; // prevent document click from interfering
+        }).catch(() => {});
+      } else {
+        // Turn OFF
+        bgAudio.pause();
+        if (audioToggleText) audioToggleText.textContent = 'AUDIO OFF';
+      }
+    });
+  }
 
   // Initialize arrival (envelope + seal)
   initArrival({
