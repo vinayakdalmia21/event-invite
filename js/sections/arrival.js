@@ -24,6 +24,11 @@ export function initArrival({ onEnvelopeOpened }) {
 
   // 1. Play the video initially and wait for the blend time
   video.addEventListener('timeupdate', () => {
+    // Ensure playback rate remains 1.25x (some browsers reset it on play)
+    if (video.playbackRate !== 1.25) {
+      video.playbackRate = 1.25;
+    }
+
     // Force skip to 2s/3s on the first frame to ensure it works on all browsers natively without breaking autoplay
     if (!video.dataset.seeked) {
       const targetTime = isDesktop ? 3.0 : 2.0;
