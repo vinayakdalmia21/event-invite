@@ -309,7 +309,7 @@ h1, h2, h3, h4, h5 {
   background: transparent;
   overflow: hidden;
   min-height: auto;
-  padding: 3rem 1.5rem 0.5rem;
+  padding: 2rem 1.5rem 0.5rem;
 }
 
 .invitation {
@@ -326,7 +326,7 @@ h1, h2, h3, h4, h5 {
     #F0E4D0 100%
   );
   border-radius: 12px;
-  padding: 2.5rem 1.5rem;
+  padding: 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -481,7 +481,7 @@ h1, h2, h3, h4, h5 {
 .invitation__details-grid {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: 1rem;
 }
 
