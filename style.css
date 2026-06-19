@@ -522,7 +522,8 @@ h1, h2, h3, h4, h5 {
   text-transform: uppercase;
   color: var(--gold);
   margin-top: 1rem;
-  font-weight: bold;
+  font-weight: 700 !important;
+  letter-spacing: 0.35em;
 }
 
 /* Scroll indicator */
@@ -1209,6 +1210,7 @@ h1, h2, h3, h4, h5 {
   margin-top: var(--space-sm);
   transition: all var(--duration-fast) var(--ease-ceremony);
   cursor: pointer;
+  font-weight: 700 !important;
 }
 
 .rsvp__button:active {
@@ -1717,6 +1719,7 @@ h1, h2, h3, h4, h5 {
     padding: 1.2rem 2rem;
     margin-top: 1rem;
     font-size: 0.65rem;
+    font-weight: 700 !important;
   }
 
   /* ==========================
@@ -1890,7 +1893,7 @@ h1, h2, h3, h4, h5 {
     background: none;
     border: 1px solid var(--gold);
     color: var(--gold);
-    font-weight: bold;
+    font-weight: 700 !important;
   }
 
   .section--rsvp .rsvp__button:active {
