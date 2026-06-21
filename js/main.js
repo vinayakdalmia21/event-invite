@@ -5,6 +5,9 @@
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { inject } from '@vercel/analytics';
+
+inject();
 import { initParticles } from './effects/particles.js';
 import { initArrival } from './sections/arrival.js';
 import { initInvitationCard } from './sections/invitation-card.js';
