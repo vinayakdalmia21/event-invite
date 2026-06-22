@@ -9,7 +9,6 @@ import { inject } from '@vercel/analytics';
 
 inject();
 import { initParticles } from './effects/particles.js';
-import { initArrival } from './sections/arrival.js';
 import { initInvitationCard } from './sections/invitation-card.js';
 
 import { initHighlights } from './sections/highlights.js';
@@ -103,30 +102,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initialize arrival (envelope + seal)
-  initArrival({
-    onEnvelopeOpened: () => {
-      // Show invitation card section
-      const cardSection = document.getElementById('invitation-card');
-      if (cardSection) cardSection.style.display = '';
+  // Animate the invitation card in
+  initInvitationCard({
+    onComplete: () => {
+      // NOW unlock scrolling
+      document.body.classList.remove('no-scroll');
 
-      // Animate the invitation card in
-      initInvitationCard({
-        onComplete: () => {
-          // NOW unlock scrolling
-          document.body.classList.remove('no-scroll');
+      // Initialize all scroll-based sections
+      initHighlights();
+      initShaktiStory();
+      initCollaboration();
+      initRsvp();
 
-          // Initialize all scroll-based sections
-          initHighlights();
-          initShaktiStory();
-          initCollaboration();
-          initRsvp();
-
-          // Refresh scroll triggers
-          requestAnimationFrame(() => {
-            ScrollTrigger.refresh();
-          });
-        }
+      // Refresh scroll triggers
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
       });
     }
   });
