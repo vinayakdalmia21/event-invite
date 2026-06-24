@@ -1908,6 +1908,7 @@ h5 {
     justify-content: center;
     align-items: center;
     position: relative;
+    z-index: 3;
     overflow: visible;
   }
 
@@ -1983,6 +1984,8 @@ h5 {
     background: var(--cream);
     padding-top: 0;
     padding-bottom: 5rem;
+    position: relative;
+    z-index: 1;
   }
 
   .section--rsvp .rsvp__label {
